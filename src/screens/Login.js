@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 10.0,
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    fontWeight: '600',
   },
   formButton: {
     marginTop: 15.0,

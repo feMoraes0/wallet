@@ -6,20 +6,30 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Login from './src/screens/Login';
+
+const {Navigator, Screen} = createStackNavigator();
 
 const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <Login />
+      <NavigationContainer>
+        <Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Screen name="Login" component={Login} />
+        </Navigator>
+      </NavigationContainer>
     </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
