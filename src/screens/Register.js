@@ -7,21 +7,23 @@ import Input from '../components/external/Input';
 import InputLabel from '../components/external/InputLabel';
 import {kBackground} from '../theme';
 
-const Login = ({navigation}) => {
-  const goToRegister = () => {
-    navigation.navigate('Register');
+const Register = ({navigation}) => {
+  const goToLogin = () => {
+    navigation.navigate('Login');
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header text="LOGIN" />
+      <Header text="REGISTER" />
       <View style={styles.form}>
         <InputLabel>USERNAME</InputLabel>
         <Input type="username" focus={true} />
         <InputLabel>PASSWORD</InputLabel>
         <Input type="password" focus={false} />
+        <InputLabel>CONFIRM PASSWORD</InputLabel>
+        <Input type="password" focus={false} />
         <Button
-          text="LOGIN"
+          text="REGISTER"
           textColour={kBackground}
           backgroundColour="white"
           onPress={() => null}
@@ -30,10 +32,10 @@ const Login = ({navigation}) => {
       <Divider text="OR" />
       <View style={styles.footer}>
         <Button
-          text="REGISTER"
+          text="LOGIN"
           textColour="white"
           backgroundColour="rgba(255, 255, 255, 0.1)"
-          onPress={() => goToRegister()}
+          onPress={() => goToLogin()}
         />
       </View>
     </SafeAreaView>
@@ -57,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;
