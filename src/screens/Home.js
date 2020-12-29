@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   TouchableOpacity,
 } from 'react-native';
 import List from '../components/internal/List';
@@ -13,8 +12,6 @@ import {kBackground} from '../theme';
 import Menu from '../../assets/icons/menu.svg';
 import Plus from '../../assets/icons/plus.svg';
 import Arrows from '../../assets/icons/arrows.svg';
-
-const {height} = Dimensions.get('screen');
 
 const transactions = [
   {
@@ -65,9 +62,25 @@ const transactions = [
     type: 'deposit',
     date: '00/00/00',
   },
+  {
+    id: 8,
+    value: 13.5,
+    type: 'withdraw',
+    date: '00/00/00',
+  },
+  {
+    id: 9,
+    value: 13.5,
+    type: 'withdraw',
+    date: '00/00/00',
+  },
 ];
 
-const Home = () => {
+const Home = ({navigation}) => {
+  const goToNewEntry = () => {
+    navigation.navigate('NewEntry');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -75,7 +88,9 @@ const Home = () => {
           <Menu color="white" />
         </TouchableOpacity>
         <Text style={styles.headerText}>MY ACCOUNT</Text>
-        <Plus color="white" />
+        <TouchableOpacity onPress={() => goToNewEntry()}>
+          <Plus color="white" />
+        </TouchableOpacity>
       </View>
       <View style={styles.valueBox}>
         <Text style={styles.valueText}>10.000,00</Text>
@@ -83,7 +98,7 @@ const Home = () => {
       </View>
       <View style={styles.content}>
         <View style={styles.contentHeader}>
-          <Arrows width="24" height="24" />
+          <Arrows color="#2c3e50" width="24" height="24" />
           <Text style={styles.contentHeaderText}>TRANSACTIONS</Text>
         </View>
         <List itens={transactions} />
@@ -110,7 +125,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   valueBox: {
-    paddingVertical: 50.0,
+    paddingVertical: 60.0,
     flexDirection: 'column',
     alignItems: 'center',
   },
@@ -128,7 +143,7 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: 'white',
-    height: height / 1.5,
+    flex: 1,
     marginHorizontal: 20.0,
     borderRadius: 10.0,
     padding: 20.0,

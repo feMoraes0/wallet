@@ -3,7 +3,7 @@ import {FlatList, View, Text, StyleSheet} from 'react-native';
 
 import ArrowBottom from '../../../assets/icons/arrow_bottom.svg';
 import ArrowTop from '../../../assets/icons/arrow_top.svg';
-import {kBackground} from '../../theme';
+import {kBackground, kRedColour} from '../../theme';
 
 const List = ({itens}) => {
   const ListItem = ({item}) => {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: kBackground,
   },
   listItemWithdraw: {
-    backgroundColor: '#FF5252',
+    backgroundColor: kRedColour,
   },
 });
 
