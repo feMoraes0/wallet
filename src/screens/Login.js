@@ -12,6 +12,10 @@ const Login = ({navigation}) => {
     navigation.navigate('Register');
   };
 
+  const goToHome = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header text="LOGIN" />
@@ -24,7 +28,7 @@ const Login = ({navigation}) => {
           text="LOGIN"
           textColour={kBackground}
           backgroundColour="white"
-          onPress={() => null}
+          onPress={() => goToHome()}
         />
       </View>
       <Divider text="OR" />
