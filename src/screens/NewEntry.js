@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Keyboard,
   StyleSheet,
 } from 'react-native';
 import Menu from '../../assets/icons/menu.svg';
@@ -26,10 +27,12 @@ const NewEntry = () => {
   };
 
   const save = () => {
-    console.warn({
+    const data = {
       type: transactionType,
       value: transactionValue,
-    });
+    };
+    Keyboard.dismiss();
+    console.warn(data);
   };
 
   return (
